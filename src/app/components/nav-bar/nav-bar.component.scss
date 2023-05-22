@@ -1,0 +1,58 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    // margin: 16px 16px 0 16px;
+    background-color: rgb(46, 46, 46);
+    justify-content: space-between;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+li a {
+    position: relative;
+    display: block;
+    padding: 8px 12px;
+    border-bottom: solid 4px transparent;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    overflow: hidden;
+
+    &:hover,
+    &:focus-visible {
+        background-color: rgba($color: gray, $alpha: 0.2);
+        border-bottom-color: aquamarine;
+        color: aquamarine;
+    }
+
+    // Click effect
+    &:after {
+        content: "";
+        background: white;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        padding-top: 350%;
+        padding-left: 350%;
+        border-radius: 50%;
+        opacity: 0;
+        transition: all 0.8s
+    }
+
+    &:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 0.5;
+        transition: 0s
+    }
+}

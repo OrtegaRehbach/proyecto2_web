@@ -1,0 +1,19 @@
+.content {
+    min-width: 100%;
+    height: fit-content;
+    // margin: 48px auto;
+}
+
+p {
+    height: 1500px;
+    font-size: 16px;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+p:hover,
+p:focus {
+    font-size: 24px;
+    background-color: red;
+}
+
