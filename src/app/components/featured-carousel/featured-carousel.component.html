@@ -1,23 +1,23 @@
 <section aria-label="Featured Content">
     <div class="carousel">
-        <button class="carousel-button prev">&#8656;</button>
-        <button class="carousel-button next">&#8658;</button>
+        <button class="carousel-button prev" data-carousel-button (click)="prevSlide()">&#8249;</button>
+        <button class="carousel-button next" data-carousel-button (click)="nextSlide()">&#8250;</button>
         <ul>
-            <li class="slide" data-active>
-                
-                <div class="slide-content">
-                    <img src="assets/img/placeholder.jpg" alt="Slide 1">
-                    <div class="slide-text">
-                        <h3>Test</h3>
-                        <p>This is a description of the slide</p>
-                    </div>
-                </div>
+            <!-- <li class="slide" data-active>
+                <app-slide-content title="Test Title 1" src="assets/img/placeholder.jpg"></app-slide-content>
             </li>
             <li class="slide">
-                <img src="assets/img/halo_infinite.png" alt="Slide 2">
+                <app-slide-content title="Test Title 2" src="assets/img/halo_infinite.png"></app-slide-content>
             </li>
             <li class="slide">
                 <img src="assets/img/doom.jpg" alt="Slide 3">
+            </li> -->
+            <li 
+                class="slide"
+                *ngFor="let slide of slides"
+                [attr.data-active]="slide.active"
+            >
+                <app-slide-content title={{slide.title}} description={{slide.desc}} src={{slide.src}}></app-slide-content>
             </li>
         </ul>
     </div>
