@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, QueryList, ViewChildren } from '@angular/core';
-import { SlideContentComponent } from './slide-content/slide-content.component';
+import { Component } from '@angular/core';
 
 const SLIDES = [
   {
@@ -19,8 +18,14 @@ const SLIDES = [
     title: "Title 3",
     desc: "Description 3",
     active: false
+  },
+  {
+    src: "https://www.residentevil.com/re4/assets/images/common/share-re.png",
+    title: "Title 4",
+    desc: "Description 4",
+    active: false
   }
-]
+];
 
 @Component({
   selector: 'app-featured-carousel',
@@ -32,20 +37,25 @@ export class FeaturedCarouselComponent {
   currentSlideIndex = 0;
   slides = SLIDES;
 
-  @ViewChildren('slide') queryResult!: QueryList<HTMLLIElement>;
-
-  changeSlide(offset: number) {
-    for (let i = 0; i < this.slides.length; i++) {
-      const slide = this.slides[i];
-      if (slide.active == true) {        
-        let newIndex = i + offset;
-        newIndex = (newIndex < 0) ? this.slides.length - 1 : newIndex;
-        newIndex = (newIndex >= this.slides.length) ?  0 : newIndex;        
-        this.slides[newIndex].active = true;
-        slide.active = false;
-        break;
+  goToSlide(index: number) {
+    if (index !== this.currentSlideIndex) {
+      for (let i = 0; i < this.slides.length; i++) {
+        const slide = this.slides[i];
+        if (slide.active == true) {         
+          this.slides[index].active = true;
+          slide.active = false;
+          this.currentSlideIndex = index;
+          break;
+        }
       }
     }
+  }
+
+  changeSlide(offset: number) {   
+    let newIndex = this.currentSlideIndex + offset;
+    newIndex = (newIndex < 0) ? this.slides.length - 1 : newIndex;
+    newIndex = (newIndex >= this.slides.length) ?  0 : newIndex;        
+    this.goToSlide(newIndex);
   }
 
   nextSlide() {

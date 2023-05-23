@@ -1,17 +1,12 @@
 <section aria-label="Featured Content">
     <div class="carousel">
-        <button class="carousel-button prev" data-carousel-button (click)="prevSlide()">&#8249;</button>
-        <button class="carousel-button next" data-carousel-button (click)="nextSlide()">&#8250;</button>
+        <button class="carousel-button prev" data-carousel-button (click)="prevSlide()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"/></svg>
+        </button>
+        <button class="carousel-button next" data-carousel-button (click)="nextSlide()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/></svg>
+        </button>
         <ul>
-            <!-- <li class="slide" data-active>
-                <app-slide-content title="Test Title 1" src="assets/img/placeholder.jpg"></app-slide-content>
-            </li>
-            <li class="slide">
-                <app-slide-content title="Test Title 2" src="assets/img/halo_infinite.png"></app-slide-content>
-            </li>
-            <li class="slide">
-                <img src="assets/img/doom.jpg" alt="Slide 3">
-            </li> -->
             <li 
                 class="slide"
                 *ngFor="let slide of slides"
@@ -20,5 +15,8 @@
                 <app-slide-content title={{slide.title}} description={{slide.desc}} src={{slide.src}}></app-slide-content>
             </li>
         </ul>
+    </div>
+    <div class="slide-indicator-container">
+        <div *ngFor="let slide of slides; let i = index" class="indicator-button" (click)="goToSlide(i)" [attr.data-active]="slide.active"></div>
     </div>
 </section>

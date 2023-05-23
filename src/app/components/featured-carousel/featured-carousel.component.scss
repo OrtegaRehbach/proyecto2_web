@@ -29,51 +29,28 @@ $fade-time: 400ms;
         opacity: 1;
         transition-delay: 0ms;
     }
-
-    &>.slide-content {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        display: block;
-
-        &>img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    
-        &>.slide-text {
-            display: block;
-            position: absolute;
-            inset: 0;
-            width: 50%;
-            height: 100%;
-            background-color: rgba($color: #000000, $alpha: 0.4);
-            backdrop-filter: blur(5px);
-            color: white;
-        }
-    }
-
 }
 
 .carousel-button {
+    height: 4rem;
     position: absolute;
     z-index: 2;
     background: none;
     border: none;
     border-radius: 0.5rem;
-    font-size: 4rem;
     color: rgba($color: white, $alpha: 0.5);
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
     padding: 0 0.5rem;
-    background-color: rgba($color: black, $alpha: 0.1);
+    background-color: rgba($color: black, $alpha: 0.15);
+    fill: rgba($color: white, $alpha: 0.5);
+    transition: 200ms all ease-in-out;
 
-    &:hover, :focus {
+    &:hover, :focus-visible {
         color: white;
-        background-color: #000000;
+        fill: white;
+        background-color: rgba($color: black, $alpha: 0.6);
     }
 
     &.prev {
@@ -82,5 +59,26 @@ $fade-time: 400ms;
 
     &.next {
         right: 1rem;
+    }
+}
+
+.slide-indicator-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.2rem;
+    padding-top: 0.8rem;
+}
+
+.indicator-button {
+    height: 1rem;
+    width: 1.2rem;
+    background-color: rgba($color: black, $alpha: 0.2);
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: $fade-time all ease-in-out;
+
+    &[data-active=true] {
+        background-color: rgba($color: black, $alpha: 0.8);
     }
 }
