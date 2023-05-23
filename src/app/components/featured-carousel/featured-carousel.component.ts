@@ -21,8 +21,8 @@ const SLIDES = [
   },
   {
     src: "https://www.residentevil.com/re4/assets/images/common/share-re.png",
-    title: "Title 4",
-    desc: "Description 4",
+    title: "A Very, Very Long Title String",
+    desc: "Description 4: This is a very very long description text meant to highlight the wrap behaviuor of the slide text container.",
     active: false
   }
 ];
