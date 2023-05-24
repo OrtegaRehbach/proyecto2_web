@@ -1,19 +1,9 @@
 .content {
-    min-width: 100%;
+    // min-width: 100%;
+    // width: min(100%, 1000px);
+    width: min(100ch, 100% - 4rem);
     height: fit-content;
-    // margin: 48px auto;
+    margin-inline: auto;
 }
 
-p {
-    height: 1500px;
-    font-size: 16px;
-    background-color: transparent;
-    transition: all 0.2s ease-in-out;
-}
-
-p:hover,
-p:focus {
-    font-size: 24px;
-    background-color: red;
-}
 

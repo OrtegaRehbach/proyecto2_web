@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { APIResponse, Game } from 'src/app/models';
+import { GamesService } from 'src/app/services/games.service';
 
 const SLIDES = [
   {
@@ -32,10 +35,25 @@ const SLIDES = [
   templateUrl: './featured-carousel.component.html',
   styleUrls: ['./featured-carousel.component.scss']
 })
-export class FeaturedCarouselComponent {
+export class FeaturedCarouselComponent implements OnInit {
   
+  featuredGames: Array<Game> = [];
   currentSlideIndex = 0;
   slides = SLIDES;
+  slideInterval: any;
+  fadeTime = 4000;  // Time in ms
+  
+  constructor(private gameService: GamesService, private activatedRoute: ActivatedRoute) {}
+  
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.getFeatured();
+    });
+    // Start fade timer
+    this.slideInterval = setInterval(() => {
+      this.nextSlide()
+    }, this.fadeTime)
+  }
 
   goToSlide(index: number) {
     if (index !== this.currentSlideIndex) {
@@ -49,6 +67,11 @@ export class FeaturedCarouselComponent {
         }
       }
     }
+    // Reset fade timer every time a new slide is set
+    clearInterval(this.slideInterval)
+    this.slideInterval = setInterval(() => {
+      this.nextSlide()
+    }, this.fadeTime)
   }
 
   changeSlide(offset: number) {   
@@ -64,5 +87,24 @@ export class FeaturedCarouselComponent {
 
   prevSlide() {
     this.changeSlide(-1);
+  }
+
+  getFeatured() {
+    this.gameService
+      .getHighestRatedNow(5)
+      .subscribe((gameList: any) => {
+        this.featuredGames = (gameList as APIResponse<Game>).results;
+        this.slides = this.featuredGames.map(game => {
+          return {
+            src: game.background_image,
+            title: game.name,
+            desc: `Lanzamiento: ${game.released}` + " " + `Rating: ${game.metacritic}`,
+            active: false
+          }
+        });
+        console.log("slides", this.slides);
+        (this.slides[0] as {src: string, title: string, desc: string, active: boolean}).active = true;
+        console.log(this.featuredGames);
+      });
   }
 }

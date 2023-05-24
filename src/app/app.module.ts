@@ -6,19 +6,41 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FeaturedCarouselComponent } from './components/featured-carousel/featured-carousel.component';
 import { SlideContentComponent } from './components/featured-carousel/slide-content/slide-content.component';
+import { HomeComponent } from './components/home/home.component';
+import { HorizontalMediaScrollerComponent } from './components/horizontal-media-scroller/horizontal-media-scroller.component';
+import { DetailsComponent } from './components/details/details.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
+import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
+import { Game } from './models';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     FeaturedCarouselComponent,
-    SlideContentComponent
+    SlideContentComponent,
+    HomeComponent,
+    HorizontalMediaScrollerComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpHeadersInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorsInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+.banner-container {
+    width: 100%;
+    position: relative;
+}
+
+.banner > img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.banner-content {
+    --content_height: 60%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    top: calc(100% - var(--content_height));
+    width: 100%;
+    height: var(--content_height);
+    backdrop-filter: blur(5px);
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    color: white;
+}
+
+.screenshot-grid {
+    display: grid;
+    gap: .5rem;
+    min-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    padding-block: 1rem;
+}
+
+
+.screenshot-container  {
+    overflow: hidden;
+    border-radius: .5rem;
+    border: solid black .2rem;
+    
+    & > img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .banner-container {
+        // Hack loco para layout movil
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+    }
+
+    .screenshot-grid {
+        min-width: none;
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: 25%;
+        overflow-x: auto;
+    }
+}

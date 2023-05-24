@@ -1,0 +1,10 @@
+<h1>{{scrollerTitle}}</h1>
+<div class="media-scroller snap-inline">
+    <div class="media-element" *ngFor="let game of games">
+        <img class="thumbnail" src={{game.background_image}} alt={{game.name}}>
+        <div class="content">
+            <h4>{{game.name}}</h4>
+            <p>Rating: {{game.rating}}</p>
+        </div>
+    </div>
+</div>

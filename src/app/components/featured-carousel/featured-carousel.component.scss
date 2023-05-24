@@ -1,7 +1,12 @@
 $fade-time: 400ms;
+$slide-indicator-color: gray;
 
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+.carousel-container {
+    padding-block: 1rem;
 }
 
 .carousel {
@@ -14,6 +19,18 @@ $fade-time: 400ms;
         margin: 0;
         padding: 0;
         list-style: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .carousel-container {
+        padding: 0;
+    }
+    
+    .carousel {
+        // Hack loco para layout movil
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
     }
 }
 
@@ -71,18 +88,18 @@ $fade-time: 400ms;
 }
 
 .indicator-button {
-    height: 1rem;
+    height: 0.8rem;
     width: 1.2rem;
-    background-color: rgba($color: black, $alpha: 0.2);
-    border-radius: 0.3rem;
+    background-color: rgba($color: $slide-indicator-color, $alpha: 0.2);
+    border-radius: 0.2rem;
     cursor: pointer;
     transition: $fade-time all ease-in-out;
 
     &:hover {
-        background-color: rgba($color: black, $alpha: 0.4);
+        background-color: rgba($color: $slide-indicator-color, $alpha: 0.4);
     }
 
     &[data-active=true] {
-        background-color: rgba($color: black, $alpha: 0.8);
+        background-color: rgba($color: $slide-indicator-color, $alpha: 0.8);
     }
 }
