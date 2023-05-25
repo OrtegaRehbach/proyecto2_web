@@ -29,12 +29,12 @@ export class GamesService {
   // : Observable<APIResponse<Game>>
   getGameList(ordering: string, search?: string) {
     let params = new HttpParams()
-      .set("key", "0a379b7a49e5418c996692a028d0c740")
+      .set("key", env.API_KEY)
       .set("ordering", ordering);
     
       if (search) {
       params = new HttpParams()
-        .set("key", "0a379b7a49e5418c996692a028d0c740")
+        .set("key", env.API_KEY)
         .set("ordering", ordering)
         .set("search", search);
     }
@@ -45,7 +45,7 @@ export class GamesService {
   getHighestRatedNow(limit: number) {
     const currentYear = new Date().getFullYear();
     let params = new HttpParams()
-      .set("key", "0a379b7a49e5418c996692a028d0c740")
+      .set("key", env.API_KEY)
       .set("dates", `${currentYear}-01-01,${currentYear}-12-31`)
       .set("ordering", "-metacritic")
       .set("page_size", limit);
@@ -56,7 +56,7 @@ export class GamesService {
   getHighestRatedInGenre(limit: number, genre: string) {
     // const currentYear = new Date().getFullYear();
     let params = new HttpParams()
-      .set("key", "0a379b7a49e5418c996692a028d0c740")
+      .set("key", env.API_KEY)
       .set("genres", genre)
       // .set("dates", `${currentYear}-01-01,${currentYear}-12-31`)
       .set("page_size", limit);
