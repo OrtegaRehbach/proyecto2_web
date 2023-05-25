@@ -102,9 +102,7 @@ export class FeaturedCarouselComponent implements OnInit {
             active: false
           }
         });
-        console.log("slides", this.slides);
         (this.slides[0] as {src: string, title: string, desc: string, active: boolean}).active = true;
-        console.log(this.featuredGames);
       });
   }
 }

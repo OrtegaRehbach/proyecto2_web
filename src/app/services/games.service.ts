@@ -52,4 +52,15 @@ export class GamesService {
     
     return this.http.get(`${env.BASE_URL}/games`, {params: params});
   }
+
+  getHighestRatedInGenre(limit: number, genre: string) {
+    // const currentYear = new Date().getFullYear();
+    let params = new HttpParams()
+      .set("key", "0a379b7a49e5418c996692a028d0c740")
+      .set("genres", genre)
+      // .set("dates", `${currentYear}-01-01,${currentYear}-12-31`)
+      .set("page_size", limit);
+    
+    return this.http.get(`${env.BASE_URL}/games`, {params: params});
+  }
 }

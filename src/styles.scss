@@ -1,3 +1,30 @@
 body {
     // background-color: #323232;
 }
+
+.rating {
+    box-sizing: border-box;
+    width: 2rem;
+    aspect-ratio: 16 / 9;
+    margin: 0;
+    padding: 0.2rem;
+    border: solid black 3px;
+    border-radius: 0.2rem;
+    text-align: center;
+    font-weight: 700;
+
+    &.good {
+        color: green;
+        border-color: green;
+    }
+
+    &.mid {
+        color: yellow;
+        border-color: yellow;
+    }
+
+    &.bad {
+        color: red;
+        border-color: red;
+    }
+}

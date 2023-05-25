@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Game } from 'src/app/models';
 
 const MEDIA = [
   {
@@ -46,5 +47,5 @@ const MEDIA = [
 })
 export class HorizontalMediaScrollerComponent {
   @Input("title") scrollerTitle = "Title";
-  @Input("games") games = MEDIA; 
+  @Input("games") games: Array<Game> = []; 
 }
