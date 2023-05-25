@@ -1,15 +1,25 @@
+:root {
+    --background_color: #121212;
+    --foreground_color1: #222222;
+    --foreground_color2: #3c3c3c;
+    --foreground_color3: #4d4d4d;
+    --highlight_color: #3DD2CC;
+    --light_color: #eeeeee;
+}
+
 body {
-    // background-color: #323232;
+    background-color: var(--background_color);
+    color: var(--light_color);
 }
 
 .rating {
     box-sizing: border-box;
-    width: 2rem;
-    aspect-ratio: 16 / 9;
+    width: fit-content;
+    aspect-ratio: 3 / 2;
     margin: 0;
-    padding: 0.2rem;
+    padding: 0.2rem 0.8rem;
     border: solid black 3px;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
     text-align: center;
     font-weight: 700;
 
@@ -18,7 +28,7 @@ body {
         border-color: green;
     }
 
-    &.mid {
+    &.avg {
         color: yellow;
         border-color: yellow;
     }
@@ -27,4 +37,18 @@ body {
         color: red;
         border-color: red;
     }
+}
+
+::-webkit-scrollbar {
+    height: 0.5rem;      
+    width: 1rem;
+    background-color: var(--foreground_color1);
+    border-radius: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 0.5rem;      
+    width: 1rem;
+    background-color: var(--foreground_color2);
+    border-radius: 0.2rem;
 }

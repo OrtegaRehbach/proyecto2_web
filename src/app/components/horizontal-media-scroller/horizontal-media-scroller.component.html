@@ -1,17 +1,19 @@
-<h1>{{scrollerTitle}}</h1>
-<div class="media-scroller snap-inline">
-    <div class="media-element" *ngFor="let game of games">
-        <img *ngIf="game.background_image" class="thumbnail" src={{game.background_image}} alt={{game.name}}>
-        <img *ngIf="!game.background_image" class="thumbnail no-image" src="assets/img/placeholder.jpg" alt={{game.name}}>
-        <div class="content">
-            <h4>{{game.name}}</h4>
-            <p class="rating good">{{game.metacritic}}</p>
-        </div>
-        <div class="game-platforms">
-            <img 
-                *ngFor="let platform of game.parent_platforms" 
-                src="assets/img/platforms/{{platform.platform.slug}}_white.svg" 
-                alt="{{platform.platform.slug}}">
+<div class="scroller-container">
+    <h1>{{scrollerTitle}}</h1>
+    <div class="media-scroller snap-inline">
+        <div class="media-element" *ngFor="let game of games" (click)="goToDetails(game.id.toString())">
+            <img *ngIf="game.background_image" class="thumbnail" src={{game.background_image}} alt={{game.name}}>
+            <img *ngIf="!game.background_image" class="thumbnail no-image" src="assets/img/placeholder.jpg" alt={{game.name}}>
+            <div class="content">
+                <h4>{{game.name}}</h4>
+                <p class="rating {{getRatingColor(game.metacritic)}}">{{game.metacritic}}</p>
+            </div>
+            <div class="game-platforms">
+                <img 
+                    *ngFor="let platform of game.parent_platforms" 
+                    src="assets/img/platforms/{{platform.platform.slug}}_white.svg" 
+                    alt="{{platform.platform.slug}}">
+            </div>
         </div>
     </div>
 </div>

@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+.scroller-container {
+    margin-bottom: 1rem;
+}
+
 .media-scroller {
     width: 100%;
     display: grid;
@@ -39,15 +43,18 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: #484848;
+    // background-color: #484848;
+    background-color: var(--foreground_color1);
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     overflow: hidden;
-    transition: 200ms box-shadow ease-in-out;
+    transition: 200ms all ease-in-out;
 
 
     &:hover {
+        background-color: var(--foreground_color2);
         box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 8px;
+        cursor: pointer;
     }
 }
 
@@ -65,6 +72,10 @@
 
     & > h4 {
         font-size: 1.2rem;
+    }
+
+    & > p {
+        font-size: 1rem;
     }
 }
 

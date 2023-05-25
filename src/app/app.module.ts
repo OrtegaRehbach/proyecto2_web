@@ -12,7 +12,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
-import { Game } from './models';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { Game } from './models';
     SlideContentComponent,
     HomeComponent,
     HorizontalMediaScrollerComponent,
-    DetailsComponent
+    DetailsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

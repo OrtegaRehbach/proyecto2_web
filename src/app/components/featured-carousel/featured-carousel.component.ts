@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { APIResponse, Game } from 'src/app/models';
 import { GamesService } from 'src/app/services/games.service';
 
@@ -43,7 +43,7 @@ export class FeaturedCarouselComponent implements OnInit {
   slideInterval: any;
   fadeTime = 4000;  // Time in ms
   
-  constructor(private gameService: GamesService, private activatedRoute: ActivatedRoute) {}
+  constructor(private gameService: GamesService, private activatedRoute: ActivatedRoute, private router: Router) {}
   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -104,5 +104,9 @@ export class FeaturedCarouselComponent implements OnInit {
         });
         (this.slides[0] as {src: string, title: string, desc: string, active: boolean}).active = true;
       });
+  }
+
+  goToDetails(id: string) {
+    this.router.navigate(['details', id]);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { APIResponse, Game } from 'src/app/models';
 import { GamesService } from 'src/app/services/games.service';
 
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   public racingGames: Array<Game>;
   public games: Array<Game>;
   
-  constructor(private gameService: GamesService, private activadetRoute: ActivatedRoute) {
+  constructor(private gameService: GamesService, private activadetRoute: ActivatedRoute, private router: Router) {
     this.actionGames = [];
     this.rpgGames = [];
     this.multiplayerGames = [];

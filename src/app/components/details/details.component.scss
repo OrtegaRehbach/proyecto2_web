@@ -5,6 +5,7 @@
 .banner-container {
     width: 100%;
     position: relative;
+    margin-bottom: 1rem;
 }
 
 .banner > img {
@@ -35,22 +36,37 @@
     min-width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     padding-block: 1rem;
+    overscroll-behavior-inline: contain;
+}
+
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+
+    & > * {
+        scroll-snap-align: start;
+    }
 }
 
 
 .screenshot-container  {
     overflow: hidden;
     border-radius: .5rem;
-    border: solid black .2rem;
+    border: solid var(--foreground_color1) .1rem;
+    
     
     & > img {
         width: 100%;
         aspect-ratio: 16 / 9;
         object-fit: cover;
+        transition: 200ms all ease-in-out;
+    }
+
+    & :hover {
+        transform: scale(1.1);
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
     .banner-container {
         // Hack loco para layout movil
         width: calc(100% + 4rem);

@@ -1,44 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Game } from 'src/app/models';
-
-const MEDIA = [
-  {
-    id: 0,
-    name: "Name 1",
-    background_image: "assets/img/halo_infinite.png",
-    rating: 80
-  },
-  {
-    id: 1,
-    name: "Name 2",
-    background_image: "assets/img/doom.jpg",
-    rating: 85
-  },
-  {
-    id: 2,
-    name: "Name 3",
-    background_image: "assets/img/placeholder.jpg",
-    rating: 64
-  },
-  {
-    id: 3,
-    name: "Name 4",
-    background_image: "assets/img/halo_infinite.png",
-    rating: 40
-  },
-  {
-    id: 4,
-    name: "Name 5",
-    background_image: "assets/img/placeholder.jpg",
-    rating: 78
-  },
-  {
-    id: 5,
-    name: "Name 6",
-    background_image: "assets/img/doom.jpg",
-    rating: 92
-  }
-]
 
 @Component({
   selector: 'app-horizontal-media-scroller',
@@ -48,4 +10,20 @@ const MEDIA = [
 export class HorizontalMediaScrollerComponent {
   @Input("title") scrollerTitle = "Title";
   @Input("games") games: Array<Game> = []; 
+
+  constructor(private router: Router) {}
+  
+  getRatingColor(rating: number): string {
+    if (rating >= 75) {
+      return "good";
+    } else if (rating < 75 && rating >= 50) {
+      return "avg";
+    } else {
+      return "bad";
+    }
+  } 
+
+  goToDetails(id: string) {
+    this.router.navigate(['details', id]);
+  }
 }

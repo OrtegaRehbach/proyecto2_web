@@ -1,46 +1,20 @@
 <div class="banner-container">
     <div class="banner">
-        <img src="assets/img/placeholder.jpg" alt="banner image">
+        <img src={{game.background_image}} alt={{game.slug}}>
+        <img *ngIf="!game.background_image" src="assets/img/placeholder.jpg" alt="banner image">
         <div class="banner-content">
-            <h1>Game Title</h1>
-            <p>Rating: XX</p>
+            <h1>{{game.name}}</h1>
+            <p class="rating {{getRatingColor(gameRating)}}">{{gameRating}}</p>
         </div>
 </div>
 </div>
 <h1>Screenshots</h1>
-<div class="screenshot-grid">
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
+<div *ngIf="game.screenshots" class="screenshot-grid snaps-inline">
+    <div
+        *ngFor="let screenshot of game.screenshots" 
+        class="screenshot-container">
+        <img src="{{screenshot.image}}" alt="screenshot">
     </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-    <div class="screenshot-container">
-        <img src="assets/img/placeholder.jpg" alt="screenshot">
-    </div>
-
 </div>
+<h3 *ngIf="!game.screenshots">No Screenshots</h3>
+
