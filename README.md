@@ -49,3 +49,10 @@ Correr `ng build` para construir el proyecto. Los artefactos de construcción se
 | `key`     | `string` | **Required**. Clave del api       |
 | `id`      | `string` | **Required**. Id del juego a traer|
 
+## Environment Variables
+
+Para correr el proyecto, las siguientes variables deben estar presentes en el los archivos de environment.
+
+`BASE_URL`
+
+`API_KEY`
