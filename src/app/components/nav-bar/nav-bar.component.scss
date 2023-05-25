@@ -8,6 +8,7 @@ nav {
 ul {
     width: min(100ch, 100% - 4rem);
     margin: 0;
+    margin-inline: auto;
     padding: 0;
     list-style-type: none;
     display: flex;
