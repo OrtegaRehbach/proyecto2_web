@@ -2,6 +2,14 @@
 
 Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 16.0.2.
 
+
+## Tecnologies
+
+- Angular
+- TypeScript
+- RWAG API
+- Firebase Hosting
+
 ## Features
 
 - Despliegue de juegos por categoría
