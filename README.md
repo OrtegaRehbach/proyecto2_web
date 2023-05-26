@@ -7,7 +7,7 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 - Angular
 - TypeScript
-- RWAG API
+- RAWG API
 - Firebase Hosting
 
 ## Angular CLI
