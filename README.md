@@ -10,12 +10,6 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 - RWAG API
 - Firebase Hosting
 
-## Features
-
-- Despliegue de juegos por categoría
-- Ver detalles de un juego específico
-- Responsive UI
-
 ## Angular CLI
 
 ### Development server
