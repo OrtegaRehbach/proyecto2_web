@@ -1,16 +1,18 @@
-<div class="search-bar-container">
-    <form action="">
-        <label for="">Search</label>
-        <input type="search" name="" id="">
-        
-    </form>
-</div>
-<div class="search-result-container">
-    <div class="game-card" *ngFor="let game of searchedGames">
-        <img src="assets/img/placeholder.jpg" alt="">
-        <div class="game-card-content">
-            <h5>{{game.name}}</h5>
-            <span>Rating: 00</span>
+<div class="search-wrapper">
+    <div class="search-bar-container">
+        <form action="">
+            <label for="">Search</label>
+            <input type="search" name="" id="">
+            
+        </form>
+    </div>
+    <div class="search-result-container">
+        <div class="game-card" *ngFor="let game of searchedGames">
+            <img src="assets/img/placeholder.jpg" alt="">
+            <div class="game-card-content">
+                <h5>{{game.name}}</h5>
+                <span>Rating: 00</span>
+            </div>
         </div>
     </div>
 </div>
