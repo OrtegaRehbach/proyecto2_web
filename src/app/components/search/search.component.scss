@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.search-bar-container {
+    background-color: var(--foreground_color1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    
+    & form {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    & input {
+        width: 100%;
+        margin-left: .8rem;
+        border-radius: 0.5rem;
+        outline: none;
+        border: 0.1rem solid transparent;
+        background-color: var(--foreground_color2);
+
+        &:focus-visible {
+            border: 0.1rem solid var(--foreground_color4);
+        }
+    }
+}
+
+.search-result-container {
+    max-height: 75svh;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.5rem;
+    margin-block: 1rem;
+    padding-inline: 1rem;
+    border-inline: solid 0.2rem var(--foreground_color1);
+    overflow: auto;
+    overscroll-behavior-block: contain;
+}
+
+.game-card {
+    width: 100%;
+    min-height: 4rem;
+    display: flex;
+    background-color: var(--foreground_color2);
+    border: 0.1rem solid transparent;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    & img {
+        width: 20%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    &:hover {
+        background-color: var(--foreground_color2);
+        border: 0.1rem solid var(--foreground_color4);
+    }
+}
+
+.game-card-content {
+    height: 100%;
+    width: 100%;
+    margin-inline: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
